@@ -16,7 +16,7 @@ app.get('/keyboard',function(req,res){
 });
 
 app.post('/messasge',function(req,res){
-  const message =req.body.content;
+  const message = req.body.content;
   const id = req.user_key;
   let data = {}
 
@@ -25,18 +25,18 @@ app.post('/messasge',function(req,res){
       message:{
         text : '안녕하세요, 에밀리입니다.'
       }
-    }
+    };
   }else if(message === '정보'){
     data = {
       message:{
         text : '제가 어디서 왔는지는 아무도 몰라요.'
       },
       keyboard: buttons
-  }
+  };
 }
    else{
-    console.log('dialogflow에 전달할 메시지', message)
+    console.log('dialogflow에 전달할 메시지:', message)
   }
 res.json(data)
 });
-app.listen(port);
+http.createServer(app).listen(port)
