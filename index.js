@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT
-const button = {
+const buttons = {
   type : "buttons",
   buttons: ["선택 1", "선택 2", "선택 3"]
 }
