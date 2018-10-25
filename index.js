@@ -23,4 +23,4 @@ app.post('/messasge',function(req,res){
   console.log(req.body);
 res.json(null)
 })
-app.listen(port).end('hello john')
+app.listen(port);
