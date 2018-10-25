@@ -23,6 +23,4 @@ app.post('/messasge',function(req,res){
   console.log(req.body);
 res.json(null)
 })
-
-
-http.createServer(app).listen(port)
+app.listen(port).end('hello john')
