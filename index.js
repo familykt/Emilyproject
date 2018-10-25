@@ -8,16 +8,16 @@ const buttons = {
   type: 'buttons',
   buttons: ['에밀리와 대화시작', '정보']
 }
-app.use(bodyParser.urlencoded({extented:false}));
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.get('/keyboard',function(req,res){
-  res.json(buttons);
+  res.json(buttons)
 });
 
 app.post('/messasge',function(req,res){
-  const message = req.body.content;
-  const id = req.user_key;
+  const message = req.body.content
+  const id = req.body.user_key
   let data = {}
 
   if(message ==='에밀리와 대화시작'){
