@@ -25,5 +25,6 @@ res.json(null)
 })
 
 
-http.createServer(app).listen(port);
-res.end('hello john')
+http.createServer(app).listen(port,res){
+  res.end('hello john')
+}
