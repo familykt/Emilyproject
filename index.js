@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT
 const buttons = {
-  type : "buttons",
-  buttons: ["에밀리와 대화시작", "정보"]
+  type : 'buttons',
+  buttons: ['에밀리와 대화시작', '정보']
 }
 app.use(bodyParser.urlencoded({extented:false}));
 app.use(bodyParser.json());
@@ -33,7 +33,7 @@ app.post('/messasge',function(req,res){
       },
       keyboard: buttons
   } else{
-    console.log('dialogflow에 전달할 메시지',message)
+    console.log('dialogflow에 전달할 메시지', message)
   }
 res.json(data)
 })
