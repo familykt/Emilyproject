@@ -25,5 +25,6 @@ res.json(null)
 })
 
 
-http.createServer(app).listen(port)
-app.end('hello john')
+http.createServer(app).listen(port,function(res){
+  console.log('hello john')
+})
