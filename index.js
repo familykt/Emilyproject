@@ -1,6 +1,8 @@
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
+const Bot = require('./bot.js')
+const bot = new Bot('emily-24faf','./EmilyProject/emily-24faf-092bc8fffccb.json')
 
 const app = express();
 const port = process.env.PORT
@@ -26,24 +28,36 @@ app.post('/message',function(req,res){
   let data = {}
 
   if(message ==='에밀리와 대화시작'){
-    data = {
+    res.send = {
       message:{
         text : '안녕, 난 에밀리야.'
       }
     }
   }else if(message === '정보'){
-    data = {
+    res.send = {
       message:{
-        text : '제가 어디서 왔는지는 아무도 몰라요.'
+        text : '나는 신의탑에서 왔어.'
       },
       keyboard: buttons
   }
 }
    else{
-    console.log('dialogflow에 전달할 메시지:', message)
+     bot.sendToDialogflow(message,id).then(result=>{
+       res.send({
+         message:{
+           text: result[0].queryResult.fulfillmentText
+         }
+       })
+     }).catch(e => {
+       res.send({
+         messge: {
+           text : '신의 탑에서 정보를 가져오지 못했어!'
+         }
+       })
+     })
   }
-res.json(data)
+
 
 });
 
-http.createServer(app).listen(port|| 9090)
+http.createServer(app).listen(port)
