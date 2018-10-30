@@ -3,7 +3,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT
 
 const buttons = {
   type: 'buttons',
@@ -45,4 +45,4 @@ app.post('/messasge',function(req,res){
 res.json(data)
 });
 
-http.createServer(app).set('port', process.env.PORT || 3000);
+http.createServer(app).listen(port)
