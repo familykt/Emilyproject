@@ -21,8 +21,8 @@ app.get('/keyboard',function(req,res){
 });
 
 app.post('/messasge',function(req,res){
-  const message = req.body.content
-  const id = req.body.user_key
+  var message = req.body.content
+  var id = req.body.user_key
   let data = {}
 
   if(message ==='에밀리와 대화시작'){
