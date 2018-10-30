@@ -3,11 +3,16 @@ const http = require('http');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.PORT
+const port = process.env.PORT;
+
 const buttons = {
   type: 'buttons',
-  buttons: ['에밀리와 대화시작', '정보']
-}
+  buttons: [
+    '에밀리와 대화시작',
+    '정보'
+  ]
+};
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
@@ -23,20 +28,21 @@ app.post('/messasge',function(req,res){
   if(message ==='에밀리와 대화시작'){
     data = {
       message:{
-        text : '안녕하세요, 에밀리입니다.'
+        text : '안녕, 난 에밀리야.'
       }
-    };
+    }
   }else if(message === '정보'){
     data = {
       message:{
         text : '제가 어디서 왔는지는 아무도 몰라요.'
       },
       keyboard: buttons
-  };
+  }
 }
    else{
     console.log('dialogflow에 전달할 메시지:', message)
   }
 res.json(data)
 });
-http.createServer(app).listen(port)
+
+http.createServer(app).set('port', process.env.PORT || 3000);
