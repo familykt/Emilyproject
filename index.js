@@ -43,6 +43,7 @@ app.post('/messasge',function(req,res){
     console.log('dialogflow에 전달할 메시지:', message)
   }
 res.json(data)
+res.send(data)
 });
 
 http.createServer(app).listen(port)
