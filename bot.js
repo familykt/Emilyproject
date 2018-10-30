@@ -15,7 +15,7 @@ class Dialogflow{
         client_email: clientEmail
       }
     }
-    this.sessionClient = new dialogflow.sessionClient(config)
+    this.sessionClient = new dialogflow.Sessionsclient(config)
   }
   async sendToDialogflow(text, sessionId){
     const sessionPath = this.sessionClient.sessionPath(this.projectId, sessionId)
