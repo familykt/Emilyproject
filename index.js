@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const Bot = require('./bot.js')
-const bot = new Bot('emily-24faf','./EmilyProject/emily-24faf-092bc8fffccb.json')
+const bot = new Bot('emily-24faf','./emily-24faf-092bc8fffccb.json')
 
 const app = express();
 const port = process.env.PORT
@@ -51,7 +51,7 @@ app.post('/message',function(req,res){
      }).catch(e => {
        res.send({
          messge: {
-           text : '신의 탑에서 정보를 가져오지 못했어!'
+           text : '아직 내가 모르는 내용이야!알려줄래?'
          }
        })
      })
