@@ -1,8 +1,8 @@
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
-const Bot = require('./bot.js')
-const bot = new Bot('emily-24faf','./emily-24faf-092bc8fffccb.json')
+const Bot = require('./bot.js');
+const bot = new Bot('emily-d9653','emily-d9653-6d2f9f479be6.json')
 
 const app = express();
 const port = process.env.PORT
