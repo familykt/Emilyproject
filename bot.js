@@ -1,8 +1,8 @@
 const dialogflow = require('dialogflow');
 const fs = require('fs');
 
-class Dialogflow{
-  constructor(projectId,keyFile){
+class Dialogflow {
+   constructor(projectId,keyFile){
 
     this.projectId = projectId
 
@@ -15,7 +15,7 @@ class Dialogflow{
         client_email: clientEmail
       }
     }
-    this.sessionClient = new dialogflow.Sessionsclient(config)
+    this.sessionClient = new dialogflow.SessionsClient(config)
   }
   async sendToDialogflow(text, sessionId){
     const sessionPath = this.sessionClient.sessionPath(this.projectId, sessionId)
@@ -32,4 +32,4 @@ class Dialogflow{
   }
 };
 
-module.export = Dialogflow
+module.exports = Dialogflow
