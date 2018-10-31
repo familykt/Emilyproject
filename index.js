@@ -28,27 +28,27 @@ app.post('/message',function(req,res){
   let data = {}
 
   if(message ==='에밀리와 대화시작'){
-    res.send = {
-      message:{
-        text : '안녕, 난 에밀리야.'
+    res.send({
+      message : {
+        text : '안녕, 난 에밀리야!'
       }
-    }
+    })
   }else if(message === '정보'){
-    res.send = {
-      message:{
-        text : '나는 신의탑에서 왔어.'
-      },
-      keyboard: buttons
-  }
-}
-   else{
+res.send({
+  message: {
+    text : '나는 신의 탑 어딘가에서 있어'
+  },
+  keyboard:buttons
+})
+
+}else{
      bot.sendToDialogflow(message,id).then(result=>{
        res.send({
-         message:{
+         message: {
            text: result[0].queryResult.fulfillmentText
          }
        })
-     }).catch(e => {
+     }).catch(error => {
        res.send({
          messge: {
            text : '아직 내가 모르는 내용이야!알려줄래?'
