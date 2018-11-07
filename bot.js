@@ -29,7 +29,8 @@ class Dialogflow {
       }
     }
     return await this.sessionClient.detectIntent(request);
-  }
+  };
+
 };
 
 module.exports = Dialogflow

@@ -42,6 +42,9 @@ res.send({
   keyboard:buttons
 })
 }else if(message === '클럽 추천'){
+bot.sendToDialogflow(message,id).then(result=>{
+  console.log('input context - club')
+})
   res.send({
     message: {
       text : '어느 쪽으로 가실 건가요?'
