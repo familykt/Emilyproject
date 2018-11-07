@@ -11,7 +11,8 @@ const buttons = {
   type: 'buttons',
   buttons: [
     '에밀리와 대화시작',
-    '정보'
+    '정보',
+    '클럽 추천'
   ]
 };
 
@@ -40,7 +41,18 @@ res.send({
   },
   keyboard:buttons
 })
-
+}else if(message === '클럽 추천'){
+  res.send({
+    message : {
+      text : '어느쪽 클럽으로 가실 건가요?'
+    },
+    type: 'buttons',
+    buttons: [
+      '시부야',
+      '롯본기'
+    ]
+  }
+  )
 }else{
      bot.sendToDialogflow(message,id).then(result=>{
        res.send({
