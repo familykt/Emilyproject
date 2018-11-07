@@ -43,16 +43,17 @@ res.send({
 })
 }else if(message === '클럽 추천'){
   res.send({
-    message : {
-      text : '어느쪽 클럽으로 가실 건가요?'
+    message: {
+      text : '어느 쪽으로 가실 건가요?'
     },
-    type: 'buttons',
-    buttons: [
-      '시부야',
-      '롯본기'
-    ]
-  }
-  )
+    keyboard: {
+      type: 'buttons',
+      buttons: [
+        '시부야',
+        '롯본기'
+      ]
+    }
+  })
 }else{
      bot.sendToDialogflow(message,id).then(result=>{
        res.send({
