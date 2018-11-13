@@ -11,8 +11,8 @@ const buttons = {
   type: 'buttons',
   buttons: [
     '에밀리와 대화시작',
-    '정보',
-    '클럽 추천'
+    '특수기능',
+
   ]
 };
 
@@ -34,12 +34,17 @@ app.post('/message',function(req,res){
         text : '안녕, 난 에밀리야!'
       }
     })
-  }else if(message === '정보'){
+  }else if(message === '특수기능'){
 res.send({
   message: {
-    text : '나는 신의 탑 어딘가에서 있어'
+    text : '어떤 기능을 사용할까요?'
   },
-  keyboard:buttons
+  keyboard: {
+    type: 'buttons',
+    buttons: [
+      '클럽 추천'
+          ]
+  }
 })
 }else if(message === '클럽 추천'){
 bot.sendToDialogflow(message,id).then(result=>{
